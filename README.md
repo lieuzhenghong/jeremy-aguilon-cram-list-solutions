@@ -39,3 +39,12 @@ any coding!) since August 2018. At least I still remembered my algorithms knowle
 map.count()
 string.substr(pos, len);
 ```
+
+### [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+- Date solved: 1st April 2019
+- Time taken: ~15 minutes
+- Difficulty: Easy
+- Attempts: 1
+- Comments: Got it to work first time through---easy greedy
+  solution.
