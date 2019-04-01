@@ -15,10 +15,27 @@ any coding!) since August 2018. At least I still remembered my algorithms knowle
 
 - Date solved: 1st April 2019
 - Time taken: ~45 minutes
+- Difficulty: Medium
 - Comments: Still rusty. But this was easier because I knew how the recurrence relation worked; difficulty was handling the edge cases.
 - Syntax I learned:
 ```cpp
 	*min_element(v.begin(), v.end())
 	#include <limits.h>
 	INT_MAX
+```
+
+### [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+
+- Date solved: 1st April 2019
+- Time taken: ~50 minutes
+- Difficulty: Hard
+- Attempts: 3
+- Comments: I got the algorithm right away but got bitten by (not so) corner
+  cases: empty inputs, duplicated letters and so on. In the future, I will
+  make sure to test with corner cases to make sure I 
+
+- Syntax I learned:
+```cpp
+map.count()
+string.substr(pos, len);
 ```
