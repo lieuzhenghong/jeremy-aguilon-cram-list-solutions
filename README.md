@@ -140,3 +140,34 @@ int max (int a, int b) {
    return (a > b) ? a : b;
 }
 ```
+
+## Cram Level 2
+
+### [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+
+- Difficulty: Medium
+- Time taken: 30 minutes
+- Attempts: 1
+
+- Performance:
+  - Time: O(nlogn) 8ms
+  - Space: O(n)
+
+1. Sort the intervals in lexicographic order.
+2. Maintain a pointer, pointing it to the start of the array.
+3. Iterate through the intervals.
+  - If 2nd interval does not overlap with the interval pointed to, move the
+    left pointer to the second interval.
+  - If 2nd interval overlaps with the first, num_intervals ++;
+4. Return num_intervals.
+
+Lexicographic order is very helpful here. 
+
+Learned you can define comparator functions as lambda functions and put them in `int main`:
+
+```cpp
+int main() {
+  auto cmp = [](Interval &a, Interval b) { return a.first < b.first };
+  ... // rest of the function here
+}
+```
