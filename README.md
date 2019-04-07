@@ -124,6 +124,7 @@ sort(intervals.begin(), intervals.end(), [](Interval& a, Interval& b) {
 
 ### [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 
+- Date solved: 2nd April 2019
 - Difficulty: Easy
 - Time taken: 15 minutes (1550-1606)
 - Attempts: 1
@@ -143,37 +144,35 @@ int max (int a, int b) {
 
 ## Cram Level 2
 
-### [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+### [307. Range Sum Query Mutable](https://leetcode.com/problems/range-sum-query-mutable/)
 
+- Date solved: 7th April 2019
 - Difficulty: Medium
-- Time taken: 30 minutes
-- Attempts: 1
+- Time taken: far too long...
+- Attempts: 6+
 
-- Performance:
-  - Time: O(nlogn) 8ms
-  - Space: O(n)
+I knew right away what I had to do, having seen a similar problem in my
+previous competitive programming course. (a segment tree). But I couldn't
+implement it to save my life. After a lot of false starts and dead ends, I
+eventually managed to do it.
 
-1. Sort the intervals in lexicographic order.
-2. Maintain a pointer, pointing it to the start of the array.
-3. Iterate through the intervals.
-  - If 2nd interval does not overlap with the interval pointed to, move the
-    left pointer to the second interval.
-  - If 2nd interval overlaps with the first, num_intervals ++;
-4. Return num_intervals.
+### [Counting Inversions](https://www.hackerrank.com/challenges/ctci-merge-sort/problem)
 
-Lexicographic order is very helpful here. 
+- Date solved: 
+- Difficulty: Hard
+- Time taken:
+- Attempts:
 
-Learned you can define comparator functions as lambda functions and put them in `int main`:
+### [212. Word Search II](https://leetcode.com/problems/word-search-ii/)
 
-```cpp
-int main() {
-  auto cmp = [](Interval &a, Interval b) { return a.first < b.first };
-  ... // rest of the function here
-}
-```
+- Date solved: 
+- Difficulty: Hard
+- Time taken:
+- Attempts:
 
 ### [621. Task Scheduler](https://leetcode.com/problems/task-scheduler/)
 
+- Date solved: 6 April 2019
 - Difficulty: Medium
 - Time taken: At least 90 minutes
 - Attempts: 1
@@ -216,3 +215,37 @@ I also keep a `time` counter.  At every period, I check the top element of
 Then, I pop the top element of `task_queue`, decrement its `amount`, and
 increase its `cooldown` by `n`. If its amount <= 0, the task type is done;
 otherwise, I push it into waiting_queue.
+
+The algorithm was easy, but the specific implementation is not. I took so long
+due to going down the wrong path by trying to use one priority queue.
+
+### [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+
+- Date solved: 6th April 2019
+- Difficulty: Medium
+- Time taken: 30 minutes
+- Attempts: 1
+
+- Performance:
+  - Time: O(nlogn) 8ms
+  - Space: O(n)
+
+1. Sort the intervals in lexicographic order.
+2. Maintain a pointer, pointing it to the start of the array.
+3. Iterate through the intervals.
+  - If 2nd interval does not overlap with the interval pointed to, move the
+    left pointer to the second interval.
+  - If 2nd interval overlaps with the first, num_intervals ++;
+4. Return num_intervals.
+
+Lexicographic order is very helpful here. 
+
+Learned you can define comparator functions as lambda functions and put them in `int main`:
+
+```cpp
+int main() {
+  auto cmp = [](Interval &a, Interval b) { return a.first < b.first };
+  ... // rest of the function here
+}
+```
+
