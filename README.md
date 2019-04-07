@@ -171,3 +171,48 @@ int main() {
   ... // rest of the function here
 }
 ```
+
+### [621. Task Scheduler](https://leetcode.com/problems/task-scheduler/)
+
+- Difficulty: Medium
+- Time taken: At least 90 minutes
+- Attempts: 1
+
+Performance:
+  - Time: O(nlogn) 104ms
+  - Space: O(n)
+
+#### Problem description
+
+> Given a char array representing tasks CPU need to do. It contains capital
+> letters A to Z where different letters represent different tasks. Tasks could
+> be done without original order. Each task could be done in one interval. For
+> each interval, CPU could finish one task or just be idle.
+
+> However, there is a non-negative cooling interval n that means between two
+> same tasks, there must be at least n intervals that CPU are doing different
+> tasks or just be idle.
+
+> You need to return the least number of intervals the CPU will take to finish
+> all the given tasks.
+
+#### Solution
+
+A greedy solution is sufficient here. We always choose to perform the task that
+has the most tasks remaining, subject to it not being on cooldown. The problem
+is of course how to know what task that is.
+
+I knew I needed some sort of priority queue here. And I tried many different
+approaches. My first approach was to have a single priority queue, but I
+quickly realised that I had to globally modify all the elements at once in
+order to "tick down" the cooldown. On a priority queue, there's no way to do
+that quickly.
+
+After looking at some of the solutions, I decided to use *two* priority queues:
+one, `task_queue`, that holds tasks ready to be performed (most amount first),
+and two, `waiting_queue`, which holds tasks on cooldown (lowest cooldown first)
+I also keep a `time` counter.  At every period, I check the top element of
+`waiting_queue` and push it into the task queue if its cooldown has elapsed.
+Then, I pop the top element of `task_queue`, decrement its `amount`, and
+increase its `cooldown` by `n`. If its amount <= 0, the task type is done;
+otherwise, I push it into waiting_queue.
